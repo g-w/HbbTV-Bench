@@ -12,7 +12,7 @@
 	return destination;
     };
 
-    Array.avg = function () { 
+    Array.prototype.avg = function () { 
 	var sum = 0.0; 
 	for (var i = 0; i < this.length; i++) {
 	    sum += this[i]; // Assumes that this is of type <Integer[]>
