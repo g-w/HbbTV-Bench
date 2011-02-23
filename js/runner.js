@@ -33,7 +33,7 @@
             var runner = function () { 
                 if (i < that.cases.length) { 
                     var testSeries = new TestSeries(that.cases[i]); 
-                    testSeries.run(10, function () { 
+                    testSeries.run(25, function () { 
                         that._writeResult(i, testSeries); 
 
                         // run the next test case.

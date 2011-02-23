@@ -39,12 +39,13 @@
     <script type="text/javascript" src="tests/dummy.js"></script>
     <script type="text/javascript" src="tests/arithmetic.js"></script>
     <script type="text/javascript" src="tests/get_element_by_id.js"></script>
+    <script type="text/javascript" src="tests/inner_html.js"></script>
     <script type="text/javascript" src="tests/styles.js"></script>
     
     <script type="text/javascript">
       window.addEventListener( "load", function() {
       var r = new TestRunner();
-      r.setup("dummy", "arithmetic", "get_element_by_id", "styles"); 
+      r.setup("dummy", "arithmetic", "get_element_by_id", "inner_html", "styles"); 
       r.run(); 
       }, false );
 
