@@ -56,7 +56,7 @@ body {
   position: fixed;
   top: 36px;
   left: 128px;
-  height: 648px;
+  margin-bottom: 36px;
   width: 1024px;
 }
 
@@ -76,4 +76,9 @@ tbody > tr.odd {
 td { 
   padding: 5px 10px; 
   border: 1px solid black; 
+}
+
+/* Test Styles */
+.yellowTest { 
+  background-color: yellow; 
 }

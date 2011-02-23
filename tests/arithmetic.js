@@ -1,11 +1,21 @@
 test("arithmetic", "Arithmetic Performance", function () { 
-    var val = 0; 
+    var val; 
     for (var j = 0; j < 100; ++j) {
-	for (var i = 0; i < j * 10; ++i) {
+        val = 0; 
+	for (var i = 0; i < j * 100; ++i) {
 	    val += i; 
 	}
-	for (var i = 0; i < j * 10; ++i) {
+        val = 0; 
+	for (var i = 0; i < j * 100; ++i) {
 	    val -= i; 
+	}
+        val = 0; 
+	for (var i = 0; i < j * 100; ++i) {
+	    val *= i; 
+	}
+        val = 0; 
+	for (var i = 1; i < j * 100; ++i) {
+	    val /= i; 
 	}
     }
 }); 

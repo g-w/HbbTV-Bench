@@ -12,24 +12,25 @@
   <body>
 
     <div id="wrapper">
-    <h1>Codevise HbbTV - Javascript Benchmarks</h1>
+      <h1>Codevise HbbTV - Javascript Benchmarks</h1>
 
-    <table>
-      <thead>
-	<tr>
-	  <td>#</td>
-	  <td>Description</td>
-          <td># Runs</td>
-	  <td>Result (avg/min/max) ms</td>
-	</tr>
-      </thead>
+      <table>
+        <thead>
+	  <tr>
+	    <td>#</td>
+	    <td>Description</td>
+            <td># Runs</td>
+	    <td>Result (avg/min/max) ms</td>
+	  </tr>
+        </thead>
 
-      <tbody id="results"></tbody>
-    </table>
+        <tbody id="results"></tbody>
+      </table>
+
+      <div id="test-content"></div>
+      
     </div>    
 
-    <div id="test-content"></div>
-      
     <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
     <script type="text/javascript" src="js/series.js"></script>
@@ -37,12 +38,14 @@
 
     <script type="text/javascript" src="tests/dummy.js"></script>
     <script type="text/javascript" src="tests/arithmetic.js"></script>
+    <script type="text/javascript" src="tests/get_element_by_id.js"></script>
+    <script type="text/javascript" src="tests/styles.js"></script>
     
     <script type="text/javascript">
       window.addEventListener( "load", function() {
-         var r = new TestRunner();
-         r.setup("dummy", "arithmetic"); 
-         r.run(); 
+      var r = new TestRunner();
+      r.setup("dummy", "arithmetic", "get_element_by_id", "styles"); 
+      r.run(); 
       }, false );
 
     </script>
