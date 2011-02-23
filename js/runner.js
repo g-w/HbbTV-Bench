@@ -1,69 +1,64 @@
 (function () { 
     
-    var Runner = window.Runner = function (args) { 
+    var TestRunner = window.TestRunner = function (args) { 
+	var args = args || {};
+
 	this.cases = [];
 
 	this.testContentId = args.testContentId || "test-content"; 
-	this.results = window.getElementById(args.resultsId || "results"); 
+	this.results = document.getElementById(args.resultsId || "results"); 
     };
 
-    Object.extend(Runner.prototype, {
+    Object.extend(TestRunner.prototype, {
 	/** 
 	 * Sets the runner up.
 	 * TODO: comments
 	 */
-	setup: function (cases) { 
-	    for (var i = 0; i < cases.length; ++i) { 
-		// check if cases was defined.
-		if (window.tests[cases[i] !== undefined]) { 
-		    this.cases.push(cases[i]);
+	setup: function () { 
+	    for (var i = 0; i < arguments.length; ++i) { 
+		var test = TestCase.create(arguments[i]); 
+		if (test !== null) { 
+		    this.cases.push(test); 
 		}
-		
 	    }
 	},
 
 	/** 
 	 * Runs the test cases given to the setup method.
-	 */
-	run: function () { 
-	    for (var i = 0; i < this.cases; ++i) { 
-		var test = new window.tests[this.cases[i]](); 
-		test.setup(this.testContentId); 
-		if (test.run()) { 
-		    this._onSuccess(test.name, test.messages); 
-		} else  { 
-		    this._onFail(test.name, test.messages); 
-		}
-		this._writeResult(test); 
-	    }
-	},
+         */
+        run: function () { 
+            var that = this; 
+            var i = 0;
 
-	/**
-	 * Callback called on successfull test run
-	 *
-	 * <String> name: Name of the test case.
-	 *
-	 * <Array[String]> errors: A possibly empty array of error
-	 * messages.
-	 */	
-	_onFail: function (name, errors) {},
+            var runner = function () { 
+                if (i < that.cases.length) { 
+                    var testSeries = new TestSeries(that.cases[i]); 
+                    testSeries.run(10, function () { 
+                        that._writeResult(i, testSeries); 
 
-	/**
-	 * Callback called on successfull test run
-	 *
-	 * <String> name: Name of the test case.
-	 *
-	 * <Array[String]> messages: A possibly empty array of
-	 * messages.
-	 */	
-	_onSuccess: function (name, messages) {},
+                        // run the next test case.
+                        i++;
+                        setTimeout(runner, 1); 
+                    });
+                }
+            }; 
 
-	/**
-	 * TODO
-	 */
-	_writeResult: function (test) { 
-	    
+            runner();
+        },
+
+        /**
+         * TODO
+         */
+        _writeResult: function (i, testSeries) {
+            var cls = (i % 2 == 1) ? "odd" : "even"; 
+            var html = "<tr class='" + cls + "' ><td>" + i.toString() + "</td><td>" + testSeries.testCase().description() + "</td><td>" + testSeries.runs() + "</td><td>" + formatAvg(testSeries.avg()) + " / " +  testSeries.min() + " / " + testSeries.max() + "</td></tr>";
+            this.results.innerHTML += html;       
 	}
     });
+
+    function formatAvg(avg) { 
+        var parts = avg.toString().split("."); 
+        return parts[0] + (parts.length > 1 ? "." + parts[1].slice(0, 3) : "");
+    }
 
 })();

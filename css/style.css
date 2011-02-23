@@ -1,0 +1,79 @@
+
+/* -------------------------------------------------------------- 
+   RESET (via Eric Meyer)
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* -------------------------------------------------------------- 
+   TYPOGRAPHY
+-------------------------------------------------------------- */
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea { font-family: Helvetica, Arial, FreeSans, sans-serif; }
+
+/* HEADINGS */
+h1 { font-size: 40px; line-height: 50px; margin-bottom: 10px; }
+h2 { font-size: 30px; line-height: 40px; margin-bottom: 10px; }
+h3 { font-size: 22px; line-height: 31px; }
+h4 { font-size: 22px; line-height: 31px; }
+h5 { font-size: 22px; line-height: 31px; }
+h6 { font-size: 22px; line-height: 31px; }
+
+/* TEXT ELEMENTS */
+p, ul, ol, dl { margin-bottom: 31px; font-size: 22px; line-height: 31px; }
+ul, ol { padding-left: 31px;}
+ul { list-style-type: circle; }
+ol { list-style-type: decimal; }
+dl dt { font-weight: bold; }
+dl dd { padding-left: 10px; }
+abbr, acronym { text-decoration: underline; }
+a { color: #009; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 31px 0; padding-left: 10px; }
+dfn { font-style: italic; font-weight: bold; }
+pre, code { margin: 31px 0; white-space: pre; }
+pre, code, tt { font: 31px monospace; line-height: 31px; } 
+tt { display: block; margin: 31px 0; line-height: 31px; }
+
+/* wrapper for content
+ * Assures correct size of content.
+ */
+body {
+  background-color: white;
+}
+
+#wrapper {
+  overflow: hidden;
+  position: fixed;
+  top: 36px;
+  left: 128px;
+  height: 648px;
+  width: 1024px;
+}
+
+tr { 
+  width: 1024px; 
+}
+
+thead > tr { 
+  background-color: #eee; 
+  font-weight: bold; 
+}
+
+tbody > tr.odd { 
+  background-color: #f9f9f9;
+}
+
+td { 
+  padding: 5px 10px; 
+  border: 1px solid black; 
+}

@@ -6,7 +6,8 @@
 		
 	this._maxValue = undefined;
 	this._minValue = undefined; 
-
+        this._runs = 0; 
+        
 	this.results = []; 
     }; 
 
@@ -27,6 +28,8 @@
 		
 		count--; 
 		if(count >= 0) { 
+                    that._runs++;
+                    
 		    setTimeout(sample, 1); 
 		} else { 
 		    setTimeout(callback, 1); 
@@ -48,6 +51,14 @@
 	    return this.results.avg();
 	},
 	
+        runs: function () { 
+            return this._runs; 
+        },
+
+        testCase: function () { 
+            return this._testCase;  
+        },
+
 	_updateMax: function (result) { 
 	    this._maxValue = (this._maxValue === undefined || result > this._maxValue) ? result : this._maxValue; 
 	}, 

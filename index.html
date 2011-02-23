@@ -4,49 +4,45 @@
     <meta http-equiv="content-type" content="application/ce-html+xml; charset=UTF-8"/> 
     <meta http-equiv="Content-Language" content="de" /> 
     
-    <style type="text/css" media="screen" href="css/style.css"></style>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 
     <title>HbbTV - Javascript Benchmarks</title>
   </head>
 
   <body>
-    
-    <h1>HbbTV - Javascript Benchmarks</h1>
 
-    <table id="results">
-      
+    <div id="wrapper">
+    <h1>Codevise HbbTV - Javascript Benchmarks</h1>
+
+    <table>
       <thead>
 	<tr>
 	  <td>#</td>
 	  <td>Description</td>
-	  <td>Result</td>
-	  <td># Runs</td>
-	  <td> + / -</td>
+          <td># Runs</td>
+	  <td>Result (avg/min/max) ms</td>
 	</tr>
       </thead>
 
-      <tbody>
-      </tbody>
-
+      <tbody id="results"></tbody>
     </table>
+    </div>    
 
     <div id="test-content"></div>
-
+      
     <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
     <script type="text/javascript" src="js/series.js"></script>
+    <script type="text/javascript" src="js/runner.js"></script>
 
     <script type="text/javascript" src="tests/dummy.js"></script>
+    <script type="text/javascript" src="tests/arithmetic.js"></script>
     
     <script type="text/javascript">
       window.addEventListener( "load", function() {
-        var t = TestCase.create("dummy"); 
-        var ts = new TestSeries(t); 
-        ts.run(10, function () { 
-           console.log(ts.max());
-           console.log(ts.min());
-           console.log(ts.avg()); 
-        });
+         var r = new TestRunner();
+         r.setup("dummy", "arithmetic"); 
+         r.run(); 
       }, false );
 
     </script>
